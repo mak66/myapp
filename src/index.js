@@ -63,7 +63,7 @@ class Game extends React.Component {
  * Calculate & Update state of new dimensions
  */
 updateDimensions() {
-  if ( window.innerWidth > 960 && window.innerHeight > 750) {
+  if ( window.innerWidth > 1060 && window.innerHeight > 750) {
     this.setState({ size: "big" });
   } else if ( window.innerWidth > 800 && window.innerHeight > 500) {
     this.setState({ size: "medium" });

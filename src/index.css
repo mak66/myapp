@@ -1,32 +1,32 @@
-body-tiny {
+.body-tiny {
   font: 6px "Century Gothic", Futura, sans-serif;
   margin: 0px;
 }
-body-small {
+.body-small {
   font: 12px "Century Gothic", Futura, sans-serif;
   margin: 6px;
 }
-body-medium {
+.body-medium {
   font: 24px "Century Gothic", Futura, sans-serif;
   margin: 13px;
 }
-body-big {
+.body-big {
   font: 36px "Century Gothic", Futura, sans-serif;
   margin: 20px;
 }
 
-ol-big {
+.ol-big {
   padding-left: 80px;
 }
-ol-medium{
+.ol-medium{
   padding-left: 60px;
 }
-ol-small{
+.ol-small{
   padding-left: 40px;
 }
-ol-tiny{
+.ol-tiny{
   padding-left: 10px;
-  margin: 1px;
+  margin: 0px;
 }
 
 .board-row:after {
@@ -108,7 +108,7 @@ ol-tiny{
 }
 
 .listButton-tiny {
-  font-size: 2px;
+  font-size: 4px;
   width: 45px;
   text-align: left;
 }
