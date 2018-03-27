@@ -1,10 +1,32 @@
-body {
+body-tiny {
+  font: 6px "Century Gothic", Futura, sans-serif;
+  margin: 0px;
+}
+body-small {
+  font: 12px "Century Gothic", Futura, sans-serif;
+  margin: 6px;
+}
+body-medium {
+  font: 24px "Century Gothic", Futura, sans-serif;
+  margin: 13px;
+}
+body-big {
   font: 36px "Century Gothic", Futura, sans-serif;
   margin: 20px;
 }
 
-ol, ul {
+ol-big {
   padding-left: 80px;
+}
+ol-medium{
+  padding-left: 60px;
+}
+ol-small{
+  padding-left: 40px;
+}
+ol-tiny{
+  padding-left: 10px;
+  margin: 1px;
 }
 
 .board-row:after {
@@ -14,10 +36,51 @@ ol, ul {
 }
 
 .status {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
-.square {
+.square-tiny {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+  height: 40px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 40px;
+}
+.square-small {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 80px;
+  height: 80px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 80px;
+}
+.square-medium {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 100px;
+  font-weight: bold;
+  line-height: 150px;
+  height: 150px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 150px;
+}
+.square-big {
   background: #fff;
   border: 1px solid #999;
   float: left;
@@ -31,10 +94,37 @@ ol, ul {
   text-align: center;
   width: 222px;
 }
+.list-item-tiny {
+  font-size: 4px;
+}
+.list-item-small {
+  font-size: 8px;
+}
+.list-item-medium {
+  font-size: 15px;
+}
+.list-item-big {
+  font-size: 20px;
+}
 
-.listButton {
-  font-size: 48px;
-  width: 400px;
+.listButton-tiny {
+  font-size: 2px;
+  width: 45px;
+  text-align: left;
+}
+.listButton-small {
+  font-size: 8px;
+  width: 80px;
+  text-align: left;
+}
+.listButton-medium {
+  font-size: 15px;
+  width: 120px;
+  text-align: left;
+}
+.listButton-big {
+  font-size: 20px;
+  width: 160px;
   text-align: left;
 }
 
@@ -51,13 +141,40 @@ ol, ul {
   flex-direction: row;
 }
 
-.status {
+.status-tiny {
+  margin-left: 20px;
+  margin-top: 0px;
+  font-size: 6px;
+  font-weight: bold;
+}
+.status-small {
+  margin-left: 40px;
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: bold;
+}
+.status-medium {
+  margin-left: 85px;
+  margin-top: 35px;
+  font-size: 27px;
+  font-weight: bold;
+}
+.status-big {
   margin-left: 130px;
   margin-top: 50px;
   font-size: 40px;
   font-weight: bold;
 }
 
-.game-info {
+.game-info-tiny {
+  margin-left: 5px;
+}
+.game-info-small {
+  margin-left: 40px;
+}
+.game-info-medium {
+  margin-left: 60px;
+}
+.game-info-big {
   margin-left: 80px;
 }

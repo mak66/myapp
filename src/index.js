@@ -5,7 +5,7 @@ import './index.css';
 function Square(props) {
     return (
       <button
-        className="square"
+        className={"square-"+props.size}
         onClick={props.onClick}
         style={{backgroundColor: (props.onWinLine ? 'red' : 'white')}}>
         {props.value}
@@ -19,9 +19,10 @@ class Board extends React.Component {
       value={this.props.squares[i]}
       onClick={() => this.props.onClick(i)}
       onWinLine={winLine.includes(i)}
+      size={this.props.size}
            />;
   }
-  
+
   renderRow(r,winLine){
     return (
       <div className="board-row">
@@ -55,8 +56,41 @@ class Game extends React.Component {
       }],
       xIsNext: true,
       stepNumber: 0,
+      size: "big"
     }
   }
+  /**
+ * Calculate & Update state of new dimensions
+ */
+updateDimensions() {
+  if ( window.innerWidth > 960 && window.innerHeight > 750) {
+    this.setState({ size: "big" });
+  } else if ( window.innerWidth > 800 && window.innerHeight > 500) {
+    this.setState({ size: "medium" });
+  } else if ( window.innerWidth > 460 && window.innerHeight > 270) {
+    this.setState({ size: "small" });
+  } else if ( window.innerWidth > 150 && window.innerHeight > 130) {
+    this.setState({ size: "tiny" });
+  } else {
+    this.setState({ size: "too small" });
+  }
+}
+
+/**
+ * Add event listener
+ */
+componentDidMount() {
+  this.updateDimensions();
+  window.addEventListener("resize", this.updateDimensions.bind(this));
+}
+
+/**
+ * Remove event listener
+ */
+componentWillUnmount() {
+  window.removeEventListener("resize", this.updateDimensions.bind(this));
+}
+
   handleClick(i){
     const history = this.state.history.slice(0,this.state.stepNumber + 1);
     const current = history[history.length - 1];
@@ -89,10 +123,10 @@ class Game extends React.Component {
     const moves = history.map((step, move) => {
     const desc = move ?
       'Go to move #' + move :
-      'Go to game start';
+      'Game Start';
       return (
-        <li key={move}>
-          <button className="listButton" onClick={() => this.jumpTo(move)}>{desc}</button>
+        <li  className={"list-item-"+this.state.size}key={move}>
+          <button className={"listButton-"+this.state.size} onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
     });
@@ -105,19 +139,23 @@ class Game extends React.Component {
     } else {
       status = 'Next player: '+ (this.state.xIsNext ? 'X' : 'O');
     }
+    if (this.state.size === "too small" ) return (<div>Window too small</div>);
 
     return (
-      <div>
+      <div className={"body-"+this.state.size}>
         <div className="game">
-          <div className="game-board">
-            <Board squares={current.squares} onClick={(i) => this.handleClick(i)}/>
+          <div>
+            <Board
+              squares={current.squares}
+              size={this.state.size}
+              onClick={(i) => this.handleClick(i)}/>
           </div>
-          <div className="game-info">
-            <div>History</div>
-            <ol>{moves}</ol>
+          <div className={"game-info-"+this.state.size}>
+            <div className={"status-"+this.state.size}>History</div>
+            <ol className={"ol-"+this.state.size+",status-"+this.state.size}>{moves}</ol>
           </div>
         </div>
-        <div className="status">
+        <div className={"status-"+this.state.size}>
           <div>{status}</div>
         </div>
       </div>
